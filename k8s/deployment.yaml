@@ -7,6 +7,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: velocity-tracker
+    app: velocity-tracker
   name: velocity-tracker
 spec:
   replicas: 1
@@ -25,7 +26,7 @@ spec:
         io.kompose.service: velocity-tracker
     spec:
       containers:
-      - image: corvimae/gdq-tracker:latest
+      - image: corvimae/gdq-tracker:master
         imagePullPolicy: Always
         name: velocity-tracker
         envFrom:
@@ -35,5 +36,4 @@ spec:
         - containerPort: 8000
         resources: {}
       restartPolicy: Always
-      serviceAccountName: ""
 status: {}

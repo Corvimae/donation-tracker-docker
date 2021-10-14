@@ -44,3 +44,5 @@ RUN pip install psycopg2-binary dj-database-url django-environ
 
 COPY ./tracker_project/manage.py ./
 COPY ./tracker_project/tracker_project ./tracker
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
