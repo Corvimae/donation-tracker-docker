@@ -40,7 +40,7 @@ RUN pip install --upgrade pip && \
         pip install ./django-donation-tracker
 
 # Install additional python dependencies
-RUN pip install psycopg2-binary dj-database-url django-environ django-dotenv django-storages boto3
+RUN pip install psycopg2-binary~=2.8.6 dj-database-url django-environ django-dotenv django-storages boto3
 
 COPY tracker_project/manage.py ./
 COPY tracker_project/tracker_project ./tracker_project
