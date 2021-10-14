@@ -22,7 +22,6 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -60,3 +59,15 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2.1.0
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+          
+      - name: Configure doctl
+        run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 maybreak-k8s
+
+      # Runs a single command using the runners shell
+      - name: Deploy
+        run: kubectl rollout restart deployment velocity-tracker
