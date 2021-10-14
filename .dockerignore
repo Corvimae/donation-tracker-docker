@@ -13,4 +13,3 @@ db_data
 **/.webpack_build_cache
 **/static/gen/
 **/TEST-*.xml
-

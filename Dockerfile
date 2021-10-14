@@ -18,10 +18,10 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && \
 FROM base as dependencies
 
 # Install tracker dependencies
-COPY django-donation-tracker/package.json \
-        django-donation-tracker/setup.py \
-        django-donation-tracker/yarn.lock \
-        django-donation-tracker/README.md \
+COPY ./django-donation-tracker/package.json \
+        ./django-donation-tracker/setup.py \
+        ./django-donation-tracker/yarn.lock \
+        ./django-donation-tracker/README.md \
         ./django-donation-tracker/
 
 RUN pip install --upgrade pip && \
@@ -29,11 +29,10 @@ RUN pip install --upgrade pip && \
 
 FROM base
 
+COPY .git ./.git
 COPY django-donation-tracker ./django-donation-tracker
 COPY --from=dependencies /root/.cache /root/.cache
 COPY --from=dependencies /usr/src/app/django-donation-tracker/node_modules /usr/src/app/django-donation-tracker/node_modules
-
-RUN rm -rf .git/modules
 
 # Install tracker itself
 RUN pip install --upgrade pip && \
@@ -43,5 +42,5 @@ RUN pip install --upgrade pip && \
 # Install additional python dependencies
 RUN pip install psycopg2-binary dj-database-url django-environ
 
-COPY tracker_project/manage.py requirements.txt ./
-COPY tracker_project/tracker_project ./tracker_project
+COPY ./tracker_project/manage.py ./
+COPY ./tracker_project/tracker_project ./tracker
