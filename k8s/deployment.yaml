@@ -35,5 +35,12 @@ spec:
         ports:
         - containerPort: 8000
         resources: {}
+        volumeMounts:
+          - mountPath: /var/www/static
+            name: velocity-tracker-static
       restartPolicy: Always
+      volumes:
+      - name: velocity-tracker-static
+        persistentVolumeClaim:
+          claimName: velocity-tracker-static
 status: {}
