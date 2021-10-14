@@ -45,4 +45,5 @@ RUN pip install psycopg2-binary dj-database-url django-environ
 COPY tracker_project/manage.py ./
 COPY tracker_project/tracker_project ./tracker_project
 
-CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "devsite.asgi:application"]
+
+CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "tracker_project.wsgi:application"]
