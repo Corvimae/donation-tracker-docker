@@ -1,0 +1,3 @@
+[submodule "django-donation-tracker"]
+	path = django-donation-tracker
+	url = https://github.com/GamesDoneQuick/donation-tracker
