@@ -35,5 +35,9 @@ spec:
         ports:
         - containerPort: 8000
         resources: {}
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "python", "manage.py", "collectstatic", "--noinput"]
       restartPolicy: Always
 status: {}
