@@ -42,7 +42,7 @@ RUN pip install --upgrade pip && \
 # Install additional python dependencies
 RUN pip install psycopg2-binary dj-database-url django-environ
 
-COPY ./tracker_project/manage.py ./
-COPY ./tracker_project/tracker_project ./django-donation-tracker/tracker
+COPY tracker_project/manage.py ./
+COPY tracker_project/tracker_project ./tracker_project
 
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
