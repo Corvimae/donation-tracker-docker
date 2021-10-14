@@ -147,6 +147,7 @@ CHANNEL_LAYERS = {'default': {'BACKEND': 'channels.layers.InMemoryChannelLayer'}
 DOMAIN = 'teamvelocitysr.com'
 
 HAS_EMAIL = True
+EMAIL_USE_TLS = True
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_PORT = os.getenv('EMAIL_PORT')
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
