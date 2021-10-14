@@ -1,0 +1,20 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: velocity-tracker-ingress
+  namespace: default
+  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/velocity-tracker-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - "teamvelocitysr.com"
+      secretName: velocity-tracker-tls
+  rules:
+    - host: "teamvelocitysr.com"
+      http:
+        paths:
+          - backend:
+              serviceName: velocity-tracker-service
+              servicePort: 8000

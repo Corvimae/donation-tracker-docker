@@ -1,0 +1,1 @@
+docker run --env-file .env -p 8000:8000 corvimae/gdq-tracker python manage.py runserver 0.0.0.0:8000j
