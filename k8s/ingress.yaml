@@ -6,6 +6,9 @@ metadata:
   selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/velocity-tracker-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.org/websocket-services: "velocity-tracker-service"
 spec:
   tls:
     - hosts:

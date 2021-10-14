@@ -12,3 +12,4 @@ tracker/static/gen/
 yarn-error.log
 TEST*.xml
 **/.env
+.DS_Store
