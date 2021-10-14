@@ -33,6 +33,8 @@ COPY django-donation-tracker ./django-donation-tracker
 COPY --from=dependencies /root/.cache /root/.cache
 COPY --from=dependencies /usr/src/app/django-donation-tracker/node_modules /usr/src/app/django-donation-tracker/node_modules
 
+RUN rm -rf .git/modules
+
 # Install tracker itself
 RUN pip install --upgrade pip && \
         (cd django-donation-tracker && python setup.py package) && \
