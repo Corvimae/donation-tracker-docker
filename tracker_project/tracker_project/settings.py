@@ -169,4 +169,4 @@ POST_OFFICE = {
     'DEFAULT_PRIORITY' : 'now'
 }
 
-APPEND_SLASH = False
+APPEND_SLASH = True
