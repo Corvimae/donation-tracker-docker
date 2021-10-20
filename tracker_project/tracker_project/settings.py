@@ -144,7 +144,7 @@ from tracker import ajax_lookup_channels
 AJAX_LOOKUP_CHANNELS = ajax_lookup_channels.AJAX_LOOKUP_CHANNELS
 ASGI_APPLICATION = 'tracker_project.routing.application'
 CHANNEL_LAYERS = {'default': {'BACKEND': 'channels.layers.InMemoryChannelLayer'}}
-DOMAIN = `os.getenv('DOMAIN')`
+DOMAIN = os.getenv('DOMAIN')
 
 HAS_EMAIL = True
 EMAIL_USE_TLS = True
