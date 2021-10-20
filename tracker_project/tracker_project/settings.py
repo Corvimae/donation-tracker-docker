@@ -27,7 +27,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['teamvelocitysr.com']
+ALLOWED_HOSTS = [os.getenv('DOMAIN')]
 
 # Application definition
 
@@ -144,7 +144,7 @@ from tracker import ajax_lookup_channels
 AJAX_LOOKUP_CHANNELS = ajax_lookup_channels.AJAX_LOOKUP_CHANNELS
 ASGI_APPLICATION = 'tracker_project.routing.application'
 CHANNEL_LAYERS = {'default': {'BACKEND': 'channels.layers.InMemoryChannelLayer'}}
-DOMAIN = 'teamvelocitysr.com'
+DOMAIN = `os.getenv('DOMAIN')`
 
 HAS_EMAIL = True
 EMAIL_USE_TLS = True
